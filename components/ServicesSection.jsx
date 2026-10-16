@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const services = [
   {
@@ -13,6 +12,21 @@ const services = [
     title: "CNC Turning",
     image:
       "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: "Aerospace Components",
+    image:
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: "Precision Metal Parts",
+    image:
+      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: "Custom Component Manufacturing",
+    image:
+      "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Aerospace Components",
@@ -50,16 +64,21 @@ const ArrowUpRight = () => (
 
 export default function ServicesSection() {
   const trackRef = useRef(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  const handleInteraction = () => {
+    if (!hasInteracted) {
+      setHasInteracted(true);
+    }
+  };
 
   const scrollByCard = (dir) => {
+    handleInteraction();
     const el = trackRef.current;
-
     if (!el) return;
 
     const card = el.querySelector("[data-card]");
-    const step = card
-      ? card.getBoundingClientRect().width + 24
-      : 320;
+    const step = card ? card.getBoundingClientRect().width + 24 : 320;
 
     el.scrollBy({
       left: dir * step,
@@ -67,12 +86,35 @@ export default function ServicesSection() {
     });
   };
 
+  // Duplicate list once when animating to create a seamless loop
+  const displayedServices = !hasInteracted ? [...services, ...services] : services;
+
   return (
     <section
       id="all-services"
-      className="overflow-hidden bg-slate-100 py-16 md:py-24"
+      className="overflow-hidden bg-slate-200/80 py-16 md:py-24"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <style jsx global>{`
+        @keyframes slowMarquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-slow-marquee {
+          display: flex;
+          width: max-content;
+          animation: slowMarquee 45s linear infinite;
+          will-change: transform;
+        }
+        .animate-slow-marquee:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      <div className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40">
         {/* Section Header */}
         <div className="grid gap-8 md:grid-cols-2 md:items-end md:gap-16">
           <div>
@@ -82,9 +124,7 @@ export default function ServicesSection() {
 
             <h2 className="mt-4 max-w-md text-3xl font-medium leading-tight tracking-tight text-slate-900 md:text-5xl">
               Precision Engineering.
-              <span className="block text-slate-500">
-                Built to Perform.
-              </span>
+              <span className="block text-slate-500">Built to Perform.</span>
             </h2>
 
             <a
@@ -100,60 +140,76 @@ export default function ServicesSection() {
           <div className="space-y-4 text-sm leading-7 md:text-base">
             <p className="font-medium text-slate-800">
               We deliver precision CNC machining and custom component
-              manufacturing, transforming engineering designs into
-              accurate, production-ready parts. Every component is
-              manufactured with a focus on dimensional accuracy,
-              consistency, and quality.
+              manufacturing, transforming engineering designs into accurate,
+              production-ready parts. Every component is manufactured with a
+              focus on dimensional accuracy, consistency, and quality.
             </p>
 
             <p className="text-slate-500">
-              From CNC milling and turning to complex metal components,
-              we support aerospace, automotive, industrial machinery,
-              and construction applications. Our manufacturing process
-              follows your drawings and specifications to deliver
-              components designed for reliable performance.
+              From CNC milling and turning to complex metal components, we
+              support aerospace, automotive, industrial machinery, and
+              construction applications. Our manufacturing process follows your
+              drawings and specifications to deliver components designed for
+              reliable performance.
             </p>
           </div>
         </div>
 
-        {/* Service Cards */}
+        {/* Service Cards Container */}
         <div
           ref={trackRef}
-          className="-mx-6 mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-16"
+          onMouseEnter={handleInteraction}
+          onTouchStart={handleInteraction}
+          onScroll={handleInteraction}
+          className={`-mx-6 mt-16 overflow-x-auto px-6 pb-3 pt-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
+            !hasInteracted
+              ? "animate-slow-marquee cursor-grab"
+              : "flex snap-x snap-mandatory gap-6"
+          }`}
         >
-          {services.map((service, index) => (
-            <a
-              key={service.title}
-              href="#contact"
-              data-card
-              className="group relative flex h-72 w-[260px] shrink-0 snap-start flex-col justify-between overflow-hidden bg-slate-900 md:h-80 md:w-72"
-            >
-              {/* Image */}
-              <img
-                src={service.image}
-                alt={service.title}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
-              />
-
-              {/* Image Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/90 transition duration-300 group-hover:from-slate-950/20" />
-
-              {/* Number */}
-              <span className="relative p-5 text-5xl font-light tracking-tight text-white">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              {/* Card Footer */}
-              <div className="relative flex min-h-[76px] items-center justify-between gap-3 border-t border-white/15 bg-slate-950/80 px-5 py-4 text-sm text-white backdrop-blur-sm transition-colors duration-300 group-hover:bg-orange-600">
-                <span className="max-w-[185px] font-medium leading-5">
-                  {service.title}
+          <div className={`flex gap-6 ${!hasInteracted ? "flex-row" : ""}`}>
+            {displayedServices.map((service, index) => (
+              <div
+                key={`${service.title}-${index}`}
+                data-card
+                className="group relative flex h-96 w-[260px] shrink-0 snap-start flex-col justify-end overflow-visible bg-slate-900 md:h-80 md:w-72"
+              >
+                {/* Number - Positioned absolute with top half outside the card */}
+                <span className="absolute -top-10 left-4 text-7xl font-semibold tracking-tight text-white z-20 pointer-events-none drop-shadow-md">
+                  {String((index % services.length) + 1).padStart(2, "0")}
                 </span>
 
-                <ArrowUpRight />
+                {/* Card Link Container */}
+                <a
+                  href="#contact"
+                  onClick={handleInteraction}
+                  className="relative flex h-full w-full flex-col justify-between overflow-hidden"
+                >
+                  {/* Image */}
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  />
+
+                  {/* Image Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/90" />
+
+                  <div />
+
+                  {/* Card Footer - Absolute at bottom-4 */}
+                  <div className="absolute bottom-4 w-full pr-4 flex py-3 items-center justify-between gap-3 bg-slate-950/80 text-sm text-white backdrop-blur-sm z-10">
+                    <span className="w-full font-medium leading-5 px-4">
+                      {service.title}
+                    </span>
+
+                    <ArrowUpRight />
+                  </div>
+                </a>
               </div>
-            </a>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Slider Controls */}

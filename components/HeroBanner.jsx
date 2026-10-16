@@ -1,47 +1,27 @@
-
-// "use client";
-
-// import React from "react";
-
-// function HeroBanner() {
-//   return (
-//     <div className="m-0 h-screen w-full overflow-hidden p-0">
-//       <video
-//         src="/video/banner.mp4"
-//         className="block h-full w-full object-cover"
-//         autoPlay
-//         loop
-//         muted
-//         playsInline
-//       />
-//     </div>
-//   );
-// }
-
-// export default HeroBanner;
-
-
-
-
-
-
 import React from "react";
 import Link from "next/link";
 import { BsArrowUpRight } from "react-icons/bs";
 
-
 function HeroBanner() {
   return (
-    <div className="relative w-full h-[calc(100vh-90px)] min-h-[600px] flex items-center bg-[#01193B] overflow-hidden ">
-      {/* Background Image with Dark Overlay for Text Readability */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center z-0 opacity-80"
-        style={{ backgroundImage: `url('/Images/banner.webp')` }}
-      />
-      <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/40 to-transparent z-0" />
+    <div className="relative w-full min-h-[600px] h-[90vh] flex items-center bg-[#01193B] overflow-hidden">
+      {/* Background Video covering the entire area */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+      >
+        <source src="/video/mtat.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Gradient Overlay for Text Readability */}
+      <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent z-0 pointer-events-none" />
 
       {/* Content Container */}
-      <div className="relative z-10 w-full px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 flex flex-col justify-center">
+      <div className="relative z-10 w-full px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 py-12 flex flex-col justify-center">
         <div className="max-w-3xl text-white space-y-6">
           
           {/* Main Heading matching the reference layout */}
@@ -78,5 +58,3 @@ function HeroBanner() {
 }
 
 export default HeroBanner;
-
-

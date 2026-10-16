@@ -180,7 +180,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="relative z-50 w-full bg-white px-4 shadow-sm backdrop-blur-md sm:px-6 md:px-12 lg:px-24 xl:pl-40">
+      <div className="relative z-50 w-full bg-white shadow-sm backdrop-blur-md px-4 sm:px-6 md:px-12 lg:px-24 xl:pl-40">
         <div className="flex h-[70px] items-center justify-between text-black lg:h-[80px]">
           {/* Logo */}
           <Link
