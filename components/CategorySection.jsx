@@ -1,194 +1,174 @@
-
-"use client";
+'use client';
 
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { FaQuoteLeft, FaStar } from "react-icons/fa";
 
 import "swiper/css";
 
-const categories = [
+const testimonials = [
   {
-    title: "Metal Cutting",
-    count: 124,
-    href: "/category/metal-cutting",
-    image:
-      "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=900&q=85",
+    name: "Rajesh Sharma",
+    role: "Managing Director, Apex Precision Engineering",
+    content: "MTAT's Vertical Machining Centers completely transformed our production output. Exceptional build quality and unparalleled local support in Punjab.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+    machine: "VMC-850 High Speed Series"
   },
   {
-    title: "Metal Forming",
-    count: 58,
-    href: "/category/metal-forming",
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=85",
+    name: "Gurpreet Singh",
+    role: "Director, Dashmesh Agricultural Works",
+    content: "Their CNC Lathes and turning solutions deliver supreme precision and reliability under heavy industrial workloads. Highly dependable team.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+    machine: "CNC Heavy Duty Lathe"
   },
   {
-    title: "Metrology",
-    count: 96,
-    href: "/category/metrology",
-    image:
-      "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=85",
+    name: "Vikram Malhotra",
+    role: "Founder, Novatech Components",
+    content: "Investing in their 5-Axis machining systems elevated our aerospace component accuracy to an entirely new tier. Truly world-class machinery.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
+    machine: "5-Axis Gantry Mill"
   },
   {
-    title: "Tool Room & Accessories",
-    count: 210,
-    href: "/category/tool-room-accessories",
-    image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85",
+    name: "Amit Bansal",
+    role: "Operations Head, Shivalik Die Makers",
+    content: "From consultation to installation and prompt after-sales service, MTAT has proven to be an indispensable manufacturing partner.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+    machine: "EDM Wire Cut System"
   },
   {
-    title: "Software",
-    count: 17,
-    href: "/category/software",
-    image:
-      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=900&q=85",
+    name: "Harpreet Brar",
+    role: "Plant Manager, Kesar Industries",
+    content: "The laser cutting systems we sourced are robust, incredibly fast, and operate with zero downtime. Outstanding performance overall.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=600&q=80",
+    machine: "Fiber Laser Cutter"
   },
+  {
+    name: "Maninder Oberoi",
+    role: "Chief Engineer, Guru Nanak Tools",
+    content: "Reliable tooling, accurate CMM metrology equipment, and expert guidance. They genuinely understand the nuances of industrial machining.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+    machine: "Precision CMM System"
+  }
 ];
 
-export default function CategorySection() {
+export default function TestimonialSection() {
   const [swiper, setSwiper] = useState(null);
 
   return (
-    <section className="overflow-hidden bg-[#f8f8f6] pt-16 ">
-      {/* Heading */}
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-neutral-500">
-            <span className="h-px w-7 bg-[#0f2a83]" />
-            Discover Our Collection
-            <span className="h-px w-7 bg-[#0f2a83]" />
+    <section className="overflow-hidden text-[#0a0c10] py-16 md:py-28 bg-white">
+      {/* Header Container */}
+      <div className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
+        <div>
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#004DA3]">
+            Client Success Stories
           </span>
-
-          <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
-            The Right Tools
-            <br />
-            <span className="text-[#0f2a83]">
-              For Every Creation.
-            </span>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-4xl font-semibold tracking-tight leading-[1.1] text-slate-700">
+            Trusted by Leaders in <span className="font-medium italic underline text-[#004DA3]">Precision Engineering</span>
           </h2>
-
-          <p className="mx-auto mt-4 max-w-lg text-sm leading-6 text-neutral-500">
-            Explore precision machinery, advanced technology, and
-            manufacturing solutions built for your next big idea.
+          <p className="mt-3 text-sm sm:text-base text-neutral-500 max-w-xl">
+            Hear how our high-performance CNC machinery, robust tooling, and dedicated support empower manufacturing excellence across industries.
           </p>
+        </div>
+
+        {/* Navigation Arrows */}
+        <div className="flex items-center gap-3 justify-end w-full md:w-auto">
+          <button
+            type="button"
+            onClick={() => swiper?.slidePrev()}
+            aria-label="Previous testimonials"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 transition hover:border-[#004DA3] hover:bg-[#004DA3] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#004DA3]"
+          >
+            <BiChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            type="button"
+            onClick={() => swiper?.slideNext()}
+            aria-label="Next testimonials"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 transition hover:border-[#004DA3] hover:bg-[#004DA3] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#004DA3]"
+          >
+            <BiChevronRight className="h-6 w-6" />
+          </button>
         </div>
       </div>
 
-      {/* Staggered Swiper cards */}
-      <div className="mt-12 sm:mt-16 lg:mt-20">
+      {/* Full-Width Swiper Carousel */}
+      <div className="w-full">
         <Swiper
           onSwiper={setSwiper}
-          slidesPerView={1.35}
-          spaceBetween={16}
+          slidesPerView={1.15}
+          spaceBetween={20}
           centeredSlides={false}
           grabCursor
           speed={700}
           watchOverflow
           breakpoints={{
-            480: {
-              slidesPerView: 2.1,
-              spaceBetween: 18,
-            },
-            640: {
-              slidesPerView: 2.7,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 3.2,
-              spaceBetween: 22,
-            },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 24,
-            },
-            1280: {
-              slidesPerView: 4.5,
-              spaceBetween: 26,
-            },
-            1536: {
-              slidesPerView: 5,
-              spaceBetween: 28,
-            },
+            540: { slidesPerView: 2.1, spaceBetween: 24 },
+            768: { slidesPerView: 2.6, spaceBetween: 28 },
+            1024: { slidesPerView: 3.2, spaceBetween: 32 },
+            1280: { slidesPerView: 3.8, spaceBetween: 36 },
+            1536: { slidesPerView: 4.2, spaceBetween: 40 },
           }}
-          className="!overflow-visible !pb-4 !pl-5 sm:!pl-8 lg:!pl-[max(2rem,calc((100vw-80rem)/2))]"
+          className="!overflow-visible !px-4 sm:!px-6 md:!px-12 lg:!px-16"
         >
-          {categories.map((category, index) => {
+          {testimonials.map((item, index) => {
             const raised = index % 2 === 1;
 
             return (
-              <SwiperSlide key={category.title} className="!h-auto">
-                <a
-                  href={category.href}
-                  className={`group block transition-transform duration-500 ${
-                    raised
-                      ? "mt-0"
-                      : "mt-10 sm:mt-14 lg:mt-16"
+              <SwiperSlide key={item.name} className="!h-auto">
+                <div
+                  className={`group flex flex-col justify-between transition-transform duration-500 rounded-2xl bg-slate-50 border border-slate-200 p-8 shadow-sm hover:shadow-md ${
+                    raised ? "mt-0 md:mt-10" : "mt-6 md:mt-0"
                   }`}
+                  style={{ minHeight: "380px" }}
                 >
-                  {/* Image card */}
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-neutral-200 shadow-sm">
-                    <img
-                      src={category.image}
-                      alt={category.title}
-                      loading={index < 3 ? "eager" : "lazy"}
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
+                  <div>
+                    {/* Quote Icon & Rating */}
+                    <div className="flex items-center justify-between mb-6">
+                      <FaQuoteLeft className="h-8 w-8 text-[#004DA3]/20" />
+                      <div className="flex items-center gap-1 text-amber-500">
+                        {[...Array(item.rating)].map((_, i) => (
+                          <FaStar key={i} className="h-3.5 w-3.5" />
+                        ))}
+                      </div>
+                    </div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/5 opacity-70 transition-opacity duration-500 group-hover:opacity-100" />
-
-                    {/* Number */}
-                    <span className="absolute left-3 top-3 text-[10px] font-medium tracking-[0.2em] text-white">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-
-                    {/* Hover arrow */}
-                    <span className="absolute bottom-4 right-4 flex h-9 w-9 translate-y-3 items-center justify-center rounded-full bg-white text-neutral-900 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                      <BiChevronRight className="h-5 w-5" />
-                    </span>
-                  </div>
-
-                  {/* Caption */}
-                  <div className="mt-3">
-                    <h3 className="text-xs font-semibold leading-5 text-neutral-900 transition-colors group-hover:text-[#0f2a83] sm:text-sm">
-                      {category.title}
-                    </h3>
-
-                    <p className="mt-0.5 text-[10px] text-neutral-500 sm:text-xs">
-                      Explore {category.count} products
+                    {/* Testimonial Content */}
+                    <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                      "{item.content}"
                     </p>
                   </div>
-                </a>
+
+                  {/* Client Info & Machine Tag */}
+                  <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-4">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="h-12 w-12 rounded-full object-cover border-2 border-[#004DA3]/30"
+                    />
+                    <div>
+                      <h3 className="text-sm font-semibold text-slate-900">
+                        {item.name}
+                      </h3>
+                      <p className="text-xs text-slate-500 line-clamp-1">
+                        {item.role}
+                      </p>
+                      <span className="inline-block mt-1 text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-[#004DA3]/10 text-[#004DA3]">
+                        {item.machine}
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </SwiperSlide>
             );
           })}
         </Swiper>
-      </div>
-
-      {/* Navigation */}
-      <div className="mx-auto mt-8 flex max-w-7xl items-center justify-between px-5 sm:px-8">
-        <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-400">
-          Explore the collection
-        </p>
-
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={() => swiper?.slidePrev()}
-            aria-label="Previous categories"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-300 text-neutral-800 transition hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
-          >
-            <BiChevronLeft className="h-5 w-5" />
-          </button>
-
-          <button
-            type="button"
-            onClick={() => swiper?.slideNext()}
-            aria-label="Next categories"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-300 text-neutral-800 transition hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
-          >
-            <BiChevronRight className="h-5 w-5" />
-          </button>
-        </div>
       </div>
     </section>
   );

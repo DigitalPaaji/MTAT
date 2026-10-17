@@ -150,7 +150,7 @@ const VideoFrame = () => {
         <canvas
           ref={canvasRef}
           className="relative z-0 h-full w-full"
-        />
+        />   
 
         {/* Loading screen */}
         {!loaded && (

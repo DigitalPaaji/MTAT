@@ -175,9 +175,9 @@ export default function ServicesSection() {
                 className="group relative flex h-96 w-[260px] shrink-0 snap-start flex-col justify-end overflow-visible bg-slate-900 md:h-80 md:w-72"
               >
                 {/* Number - Positioned absolute with top half outside the card */}
-                <span className="absolute -top-10 left-4 text-7xl font-semibold tracking-tight text-white z-20 pointer-events-none drop-shadow-md">
+                {/* <span className="absolute -top-10 left-4 text-7xl font-semibold tracking-tight text-white z-20 pointer-events-none drop-shadow-md">
                   {String((index % services.length) + 1).padStart(2, "0")}
-                </span>
+                </span> */}
 
                 {/* Card Link Container */}
                 <a

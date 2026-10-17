@@ -58,14 +58,21 @@ const column2Images = [
 
 export default function WhyUsSection() {
   return (
-    <section className="bg-[#01050a]  text-white flex items-center overflow-hidden py-12 lg:py-0">
-      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40">
+    <section className="relative bg-[#01050a] text-white flex items-center overflow-hidden py-12 lg:py-0">
+      {/* Background Image Overlay with Dark Gradient */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none z-0"
+        style={{ backgroundImage: "url('/Images/banner.webp')" }}
+      />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-[#01050a]/40 to-[#01050a]/70 pointer-events-none z-0" />
+
+      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 relative z-10">
         
         {/* Main Grid: Left Content/Features, Right Scrolling Image Columns */}
-        <div className="min-h-screen  grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="min-h-screen grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column: Heading, Subtext & Compact Horizontal Feature Rows */}
-          <div className="lg:col-span-8 space-y-10 ">
+          <div className="lg:col-span-8 space-y-10">
             
             <div>
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#98b2cf]">
@@ -91,7 +98,7 @@ export default function WhyUsSection() {
                 return (
                   <div
                     key={item.number}
-                    className="group relative flex items-start gap-4 p-4 rounded-xl backdrop-blur-sm transition-all duration-300 hover:bg-black/40 hover:shadow-lg"
+                    className="group relative flex items-start gap-4 p-4 rounded-xl backdrop-blur-sm transition-all duration-300 hover:bg-black/40 hover:shadow-lg border border-white/5 hover:border-white/10"
                   >
                     {/* Icon */}
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white transition-colors duration-300">

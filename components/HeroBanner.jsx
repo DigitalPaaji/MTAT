@@ -27,7 +27,7 @@ function HeroBanner() {
           {/* Main Heading matching the reference layout */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.1]">
             Special industrial <br className="hidden sm:inline" />
-            production <span className="relative inline-block text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[6px] after:bg-[#004DA3]/60">for business</span> <br className="hidden sm:inline" />
+            production <span className="relative inline-block text-white after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[6px] after:bg-[#004DA3]/60 italic">for business</span> <br className="hidden sm:inline" />
             process in our places
           </h1>
 

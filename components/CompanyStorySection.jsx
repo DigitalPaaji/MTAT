@@ -35,7 +35,7 @@ export default function CompanyStorySection() {
       <div className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 text-center max-w-4xl mx-auto space-y-4 mb-12">
      
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1] text-slate-500">
-          Create An Even <span className="font-semibold text-[#004DA3]">Greater Experience</span>
+          Create An Even <br /><span className="font-medium italic underline text-[#004DA3]">Greater Experience</span>
         </h2>
         <p className="text-gray-600 text-base leading-relaxed max-w-2xl mx-auto">
           Founded with a commitment to uncompromised precision, MTAT integrates advanced multi-axis CNC machinery and automated tooling solutions to deliver complex components worldwide.
@@ -44,11 +44,11 @@ export default function CompanyStorySection() {
 
       {/* Full-Width Video Frame Container */}
       <div className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40">
-        <div className="relative w-full h-[350px] sm:h-[480px] lg:h-[650px] rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-black">
+        <div className="relative w-full h-[350px] sm:h-[480px] lg:h-[70vh] rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-black">
           <video
             autoPlay
             loop
-            muted
+            
             controls
             playsInline
             className="w-full h-full object-cover"
