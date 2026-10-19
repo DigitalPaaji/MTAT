@@ -44,11 +44,11 @@ export default function CompanyStorySection() {
 
       {/* Full-Width Video Frame Container */}
       <div className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40">
-        <div className="relative w-full h-[350px] sm:h-[480px] lg:h-[70vh] rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-black">
+        <div className="relative w-full h- lg:h-[70vh] rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-black">
           <video
             autoPlay
             loop
-            
+            muted
             controls
             playsInline
             className="w-full h-full object-cover"

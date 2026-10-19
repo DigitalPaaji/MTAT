@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -195,18 +196,29 @@ function Navbar() {
           </Link>
 
           {/* Mobile brochure button */}
-          <div className="relative z-20 block xl:hidden">
+          {/* <div className="relative z-20 block xl:hidden">
             <a
-              href="/brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative inline-flex cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-md bg-[#007747] px-3 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-md"
+            href="/brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta inline-flex items-center"
+            aria-label="Download Brochure"
+          >
+            <span>Download Brochure</span>
+
+            <svg
+              width="15px"
+              height="10px"
+              viewBox="0 0 13 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
-              <i className="pointer-events-none absolute inset-0 animate-ripple rounded-full" />
-              <FaDownload className="relative z-10 text-xs" />
-              <span className="relative z-10">Brochure</span>
-            </a>
-          </div>
+              <path d="M1,5 L11,5" />
+              <polyline points="8 1 12 5 8 9" />
+            </svg>
+          </a>
+          </div> */}
 
           {/* Desktop navigation */}
           <ul className="poppins hidden items-center space-x-7 text-base font-medium text-[#01193B] xl:flex">
@@ -330,7 +342,30 @@ function Navbar() {
           </ul>
 
           {/* Desktop brochure button */}
-          <div className="relative z-20 hidden items-center xl:flex">
+<div className="relative z-20 hidden items-center xl:flex">
+  <a
+    href="/brochure.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="cta inline-flex items-center"
+    aria-label="Download Brochure"
+  >
+    <span>Download Brochure</span>
+
+    <svg
+      width="15px"
+      height="10px"
+      viewBox="0 0 13 10"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path d="M1,5 L11,5" />
+      <polyline points="8 1 12 5 8 9" />
+    </svg>
+  </a>
+</div>
+         {/* <div className="relative z-20 hidden items-center xl:flex">
             <a
               ref={btnRef}
               href="/brochure.pdf"
@@ -350,7 +385,7 @@ function Navbar() {
                 </span>
               </span>
             </a>
-          </div>
+          </div> */}
 
           {/* Mobile hamburger */}
           <button
